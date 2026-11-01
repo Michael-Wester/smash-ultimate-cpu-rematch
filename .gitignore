@@ -1,0 +1,18 @@
+# Local configuration and credentials; commit sanitized examples only.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Operating system and personal editor state.
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Repository-check tooling. Add stack-specific ignores when choosing a stack.
+.venv/
+__pycache__/
+*.py[cod]
