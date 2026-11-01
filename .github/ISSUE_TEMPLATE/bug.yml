@@ -1,31 +1,33 @@
 name: Bug report
-description: Report a reproducible problem.
-title: "Bug: "
+description: Report a problem installing or using CPU Rematch.
 body:
   - type: textarea
     id: problem
     attributes:
       label: What happened?
-      description: Include what you expected to happen instead.
+      description: Include what you expected and the steps to reproduce it.
     validations:
       required: true
   - type: textarea
-    id: reproduce
+    id: setup
     attributes:
-      label: Steps to reproduce
-      description: Give the smallest example that demonstrates the problem.
-      placeholder: "1. ..."
+      label: Your setup
+      description: Mod version, Smash version, Eden version, operating system and controller mapping.
+    validations:
+      required: true
+  - type: dropdown
+    id: timing
+    attributes:
+      label: When did it fail?
+      options:
+        - Installing or starting the game
+        - Mid-match after GO
+        - During GAME!
+        - Other
     validations:
       required: true
   - type: textarea
-    id: environment
+    id: log
     attributes:
-      label: Version and environment
-      description: Include the commit or version, OS, and relevant runtime or browser.
-    validations:
-      required: true
-  - type: textarea
-    id: evidence
-    attributes:
-      label: Logs or screenshots
-      description: Remove secrets and personal information before attaching evidence.
+      label: Diagnostic log
+      description: Attach sdmc/cpu_rematch.log after stopping the game. Review it for personal information first.

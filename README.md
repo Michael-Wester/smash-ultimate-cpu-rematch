@@ -1,56 +1,61 @@
-# Project template
+# Smash Ultimate CPU Rematch
 
-A small, general-purpose starting point for Michael-Wester's projects. Bring your
-own language, framework, and deployment target.
+Restart a CPU fight without returning to character or stage selection. Keep the
+same characters, stage and rules, and get straight into another match.
 
-Includes contributor and agent guidance, bug and feature forms, a PR template,
-editor/Git conventions, and CI that validates the starter's real documentation and
-configuration. It has no application code, product tests, secrets, or deployment.
+**For Super Smash Bros. Ultimate 13.0.3 on Eden, with Skyline installed.**
+Works in regular local Smash with **one player and one CPU**. Version 0.5.0 has
+been confirmed working on one Windows/Eden setup, both mid-match and during GAME!.
 
-## Start a project
+## Download and install
 
-1. Click **Use this template → Create a new repository** on GitHub. Select the
-   owner and name, keep it private initially, and copy only the default branch.
-2. Clone the new repository and replace this README with the project's purpose,
-   prerequisites, setup, usage, and validation commands.
-3. Choose your stack. Add source, dependency manifests and lockfiles, useful tests,
-   and stack-specific ignores. Update [AGENTS.md](AGENTS.md) with actual commands.
-4. Complete the [repository settings checklist](docs/SETUP.md). These settings
-   must be checked for each new repository; the template files do not enforce them.
-5. Choose an appropriate license before public release. No open-source license is
-   granted by this starter, and no LICENSE file is included automatically.
+**[Download v0.5.0](dist/cpu-rematch-13.0.3-v0.5.0.zip?raw=true)**
 
-## Check the starter
+1. Stop Smash completely.
+2. In Eden, select **File → Open Eden Folder**.
+3. Extract the ZIP's `sdmc` folder into that folder, merging folders when asked.
+   If updating, replace `libcpu_rematch.nro` and keep only one copy of the plugin.
+4. Start a regular local match against one CPU.
 
-Requires Git and Python 3.10+; Python is only a repository tooling choice. CI uses
-the Python supplied by GitHub's Ubuntu 24.04 runner and one pinned dependency,
-PyYAML, for parsing configuration.
+The installed file should be here, inside your Eden folder:
 
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-checks.txt
-.venv/bin/python scripts/check_repository.py
+```text
+sdmc/atmosphere/contents/01006A800016E000/romfs/skyline/plugins/libcpu_rematch.nro
 ```
 
-On Windows, use `py -3 -m venv .venv` and `.venv\Scripts\python.exe` in place of
-`.venv/bin/python`. The check reads tracked files; stage new files with `git add`
-before running it. It validates UTF-8 text conventions, JSON/YAML syntax (including
-duplicate keys), and local inline Markdown file links. It does not check remote
-URLs, Markdown anchors/reference links, or full GitHub configuration schemas.
+Skyline is required and is a separate download from
+[Skyline releases](https://github.com/skyline-dev/skyline/releases). Its `exefs`
+folder, containing `main.npdm` and `subsdk9`, must sit beside the `romfs` folder
+above. ARCropolis is not required.
 
-CI runs on pushes, pull requests, merge groups, and manual dispatches. Its stable
-check name is **Repository checks**. It proves repository hygiene only. Add real
-lint, type, build, and test commands when there is application code; see
-[extending CI](docs/SETUP.md#extend-ci-with-your-stack).
+## How to rematch
 
-## Keep it useful
+Hold the two shoulder buttons and tap the face button:
 
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for the short contribution workflow.
-- Dependabot checks GitHub Actions and the check tooling monthly. Add ecosystems
-  only when their actual dependency manifests exist.
-- Remove starter guidance that no longer applies. Add documents and directories
-  when the project needs them, rather than maintaining empty scaffolding.
+| Controller | Shortcut |
+| --- | --- |
+| Switch Pro | **L + R + Y** |
+| Xbox with the tested Eden mapping | **LB + RB + X** |
 
-GitHub templates produce a new repository with its own history. Later edits to
-this template do not automatically update projects created from it. See
-[GitHub's template guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+These are the upper shoulder buttons, not the lower triggers. With a custom
+mapping, use whichever buttons Eden assigns to **Switch L, R and Y**.
+
+Use the shortcut after GO or immediately during **GAME!**, before the results
+screen loads. Release it before trying again. The normal reload/countdown still
+plays. Training, online play and the results screen are not supported.
+
+## If it does nothing
+
+- Check that Smash is **13.0.3**, Skyline is installed and the plugin is at the path above.
+- Check your controller mapping in Eden.
+- After stopping the game, check `sdmc/cpu_rematch.log`. When reporting a bug,
+  include that log, your Eden version and whether you pressed mid-match or during GAME!.
+
+No network access is needed for rematching. To uninstall, stop the game and delete
+`libcpu_rematch.nro`. Restarting can skip normal result recording for that match.
+
+## Source and license
+
+See [building and testing](docs/DEVELOPMENT.md), [validation notes](docs/VALIDATION.md)
+and [credits](CREDITS.md). Source is licensed under [AGPL-3.0-or-later](LICENSE).
+This is an independent community mod; no game files, firmware or keys are included.

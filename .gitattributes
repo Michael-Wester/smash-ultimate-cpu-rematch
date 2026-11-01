@@ -6,3 +6,8 @@
 *.sh text eol=lf
 *.bat text eol=crlf
 *.cmd text eol=crlf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.S text eol=lf
+*.nro binary
+*.zip binary

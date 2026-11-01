@@ -1,4 +1,4 @@
-"""Check tracked documentation and configuration without choosing an app stack."""
+"""Check tracked documentation, configuration and local Markdown links."""
 
 import json
 import re
@@ -12,7 +12,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 TEXT_SUFFIXES = {".md", ".yml", ".yaml", ".json", ".py"}
-TEXT_NAMES = {".editorconfig", ".gitattributes", ".gitignore", "requirements-checks.txt"}
+TEXT_NAMES = {".editorconfig", ".gitattributes", ".gitignore", "requirements-dev.txt"}
 
 
 def unique_pairs(pairs):

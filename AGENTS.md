@@ -1,25 +1,12 @@
-# Working in this repository
+# CPU Rematch
 
-This starter has no application stack yet. Read README.md, CONTRIBUTING.md, and
-the files related to the requested change before editing. Follow more specific
-AGENTS.md files in subdirectories when present.
+Skyline C++ plugin for Smash Ultimate 13.0.3 on Eden. Read README.md for supported
+behavior and docs/DEVELOPMENT.md for setup and validation commands.
 
-- Keep changes focused on the request; preserve unrelated work.
-- Follow existing conventions. Add dependencies or abstractions only when they
-  solve a concrete need. Never invent product behavior or placeholder tests.
-- Keep secrets, credentials, private data, and generated build output out of Git.
-  Use sanitized environment examples and document new configuration.
-- Run `python scripts/check_repository.py` with the check dependencies installed.
-  Once a stack is chosen, run its relevant checks too. Report commands and results;
-  distinguish checks that passed from checks that could not run.
-- Add regression coverage for behavior changes where useful. Update documentation
-  when commands, configuration, or user-facing behavior change.
-- Preserve the `Repository checks` CI job name and unfiltered workflow triggers.
-  Add real stack checks before treating CI as proof of application correctness.
-- Do not force-push, rewrite shared history, change repository permissions or
-  rules, publish, deploy, or merge without explicit authorization for that action.
-- Before finishing, inspect the diff for unintended files and summarize the
-  change, validation, and any remaining limitations.
-
-When adapting this template, replace this introduction with the project's purpose
-and add its exact setup, lint, build, and test commands here.
+- Preserve exact-version checks, memory validation and local 1v1 CPU restrictions.
+- The released NRO and install ZIP are tracked intentionally; keep intermediate
+  output in ignored `build/`. Update release artifacts only after validation.
+- Stage new files, then run `python scripts/check_repository.py` and
+  `python source/run_checks.py`. Report simulated tests separately from live-game tests.
+- Keep the `Repository checks` CI job name and unfiltered workflow triggers.
+- Preserve license and upstream attribution. Exclude logs, keys and game assets.

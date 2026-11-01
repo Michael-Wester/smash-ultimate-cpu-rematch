@@ -1,2 +1,0 @@
-# Tooling only; this does not choose a Python application stack.
-PyYAML==6.0.3

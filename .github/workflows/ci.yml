@@ -17,15 +17,19 @@ jobs:
   repository-checks:
     name: Repository checks
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Install check tooling
+      - name: Install development tools
         run: |
           python3 -m venv .venv
-          .venv/bin/python -m pip install --disable-pip-version-check -r requirements-checks.txt
-      - name: Validate repository
+          .venv/bin/python -m pip install --disable-pip-version-check -r requirements-dev.txt
+      - name: Check documentation and configuration
         run: .venv/bin/python scripts/check_repository.py
+      - name: Build and test the plugin
+        run: .venv/bin/python source/run_checks.py
+      - name: Verify the released binary matches the source
+        run: sha256sum --check SHA256SUMS.txt

@@ -12,7 +12,10 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Repository-check tooling. Add stack-specific ignores when choosing a stack.
+# Local tooling, intermediate builds and diagnostic logs.
 .venv/
 __pycache__/
 *.py[cod]
+build/
+*.elf
+*.log
